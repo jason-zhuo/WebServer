@@ -11,7 +11,7 @@ public class Threadpool {
 	protected Finish done = new Finish();
 	private static Threadpool pool = null;
 	// thread pool size
-	static int threadSize = 20;
+	static int threadSize = 5;
 
 	/**
 	 * ÃèÊö£º construct function
@@ -76,18 +76,14 @@ public class Threadpool {
 		}
 
 	}
-	/**
-     * ÃèÊö£º ???
-     */
+
     public void complete() {
 
         done.waitBegin ();
         done.waitDone ();
     }
 
-    /**
-     * ÃèÊö£º???
-     */
+  
     protected void finalize() {
 
         done.reset ();

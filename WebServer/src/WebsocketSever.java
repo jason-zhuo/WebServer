@@ -176,7 +176,6 @@ public class WebsocketSever implements Runnable {
 				int available=isR.available();
 				isR.read(buffer);
 				getRequestHeader(buffer);
-				//String key_from_client = "dGhlIHNhbXBsZSBub25jZQ==";
 				String key_from_client = reqHeader.get("Sec-WebSocket-Key");
 				key_from_client += magicalString;
 					 
@@ -184,7 +183,6 @@ public class WebsocketSever implements Runnable {
 				byte sha1[] = new byte[20];
 				 sha1 = toSHA1(key_from_client_byte);
 				String base64_key = getBASE64(sha1);
-				//System.out.println(base64_key);
 				
 				StringBuilder str_builder = new StringBuilder();
 				str_builder.append("HTTP/1.1 101 Switching Protocols\r\n");
@@ -200,16 +198,10 @@ public class WebsocketSever implements Runnable {
 				available = isR2.available();
 				
 				buffer = new byte[1024];
-				available = isR2.read(buffer);
-				//System.out.println(buffer.toString());				
+				available = isR2.read(buffer);			
 				String client_msg = AnalyticData(buffer,available );
 				System.out.println("Receive data from client:"+ client_msg+"\n");
-				
-//				StringBuilder str_builder2 = new StringBuilder();
-//				str_builder2.append("Hello "+client_msg+"!");
-//				Sender sender2 = new Sender(socket);
-//				sender2.send_msg(str_builder2.toString());
-//				System.out.println("Send message :"+str_builder2.toString()+" to client!\n");
+
 				
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
