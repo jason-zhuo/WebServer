@@ -193,8 +193,9 @@ public class WebsocketSever implements Runnable {
 				sender.send_msg(str_builder.toString());
 				System.out.println("Handshake protocals has been send !\nWaiting for client data\n");
 				
-
+				socket.setSoTimeout(0); //infinite timeout
 				InputStream isR2=  socket.getInputStream();
+				
 				available = isR2.available();
 				
 				buffer = new byte[1024];

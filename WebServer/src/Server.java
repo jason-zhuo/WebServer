@@ -13,7 +13,7 @@ public class Server implements Runnable {
 	public Server(Socket s) {
 		listeningsocket = s;
 	}
-	String xml = "<?xml version=\"1.0\"?><cross-domain-policy><site-control permitted-cross-domain-policies=\"all\"/><allow-access-from domain=\"*\" to-ports=\"10800\"/></cross-domain-policy>\0";
+	//String xml = "<?xml version=\"1.0\"?><cross-domain-policy><site-control permitted-cross-domain-policies=\"all\"/><allow-access-from domain=\"*\" to-ports=\"10800\"/></cross-domain-policy>\0";
 	public void run() {
 		// TODO Auto-generated method stub
 		try {
